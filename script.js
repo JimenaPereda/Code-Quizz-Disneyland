@@ -2,9 +2,8 @@ var quizContainer = document.getElementById('quiz');
 var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
 
-
 var quizQuestionpage = document.querySelector("#quizQuestionsPage");
-// 
+
 quizQuestionpage.style.display= "block";
 var preguntas = document.querySelector(".preg");
 var quizQuestionHeader = document.getElementById("quizQuestionHeader");
@@ -15,10 +14,8 @@ var choice4 = document.getElementById("d");
 var choice5 = document.getElementById("e");
 var answerResponse = document.getElementById("answerResponse");
 var questionIndex = 0;
-
-
 var finalScoreIs = document.getElementById("finalScoreIs");
-var questionButton = document.querySelector(".questions");
+var questionButton = document.querySelectorAll("button.questions");
 
 console.log(questionButton)
 
@@ -77,17 +74,11 @@ var quizQuestions = [
 
 quizQuestionpage.style.display = "none"; // Hide Quiz Questions Page
 finalScorePage.style.display = "none";   // Hide Final Core Page 
-
 submitButton.addEventListener("click", startQuiz);  // Event Listener when hit start quiz 
 
 // Define the variable to store the selector
 var x = document.querySelector("#submitButton");
 // Add an event listener to the variable an determine a set of instructions
-x.addEventListener("click", function(event) {
- 
-});
-
-
 var secondsLeft = 80; // Seconds in Timer 
 var startScore = 0; // Starting time 
 var timer = document.getElementById("timer"); // Timer Variable 
@@ -104,7 +95,6 @@ function startQuiz() {
   choice4.style.display = "block";
   choice5.style.display = "block";
  
-
   var timerInterval = setInterval(function() { 
     secondsLeft--;
     timer.textContent = "Time: " + secondsLeft;
@@ -114,41 +104,71 @@ function startQuiz() {
       // showFinalScore();
     }
     
-    },1000);
+    },1000); 
  //crear header y choices 
     //for (var i = 0; i > quizQuestions.length; i++){
-      // quizQuestionHeader.textContent = quizQuestions[0].question;
-      // choice1.textContent = quizQuestions[0].a;
-      // choice2.textContent = quizQuestions[0].b;
-      // choice3.textContent = quizQuestions[0].c;
-      // choice4.textContent = quizQuestions[0].d;
-      // choice5.textContent = quizQuestions[0].e;
+      
     //};
-
-//MANDAR A LLAMAR LA FUNCION QUE GENEREA LAS PREGUNTAS
-    generateQuestions(questionIndex);
-
-
+   if(questionIndex < quizQuestions.length){
+    generateQuestions(questionIndex)
+   }
+   else{
+    console.log("Game over")
+   }
+   
 };
 
 function generateQuestions(index){
-  var pregunta = createElement("<button>");
-  //HACER  append de la pregunta al  quizQuestionsPage div  
+  quizQuestionHeader.textContent = quizQuestions[index].question;
+  choice1.textContent = quizQuestions[index].a;
+  choice2.textContent = quizQuestions[index].b;
+  choice3.textContent = quizQuestions[index].c;
+  choice4.textContent = quizQuestions[index].d;
+  choice5.textContent = quizQuestions[index].e;
+} 
 
+questionButton.forEach((button) => {
 
-}
+       button.addEventListener("click", function(event) {
+       console.log(event.target.id)
 
+           if(questionIndex >= quizQuestions.length){
+           console.log("Game over")
+           }
+           else if(event.target.id === quizQuestions[questionIndex].correctAnswer){
+           console.log("CORRECT!!")
+           console.log(questionIndex)
+           questionIndex = questionIndex +  1;
+           console.log(questionIndex)
+           generateQuestions(questionIndex)
+          }
+          else{
+          console.log("Incorrect")
+         }
+      })
 
-
-questionButton.addEventListener("click", function(event){
-console.log(event.target)
-//   //checkAnswer(event);
-
-//   // if (
-//   //   event.target["data-index"] == quizQuestions [questionIndex].correctAnswer
-//   // ){
-//   //   console.log("correct");
-//   // }
 })
+    function answersHighScore(){
+      if(quizQuestions.correctAnswer === quizQuestions.correctAnswer){
+        score = + 10;
+        answerResponse.textContent = "CORRECT!";
+      }
+      else if(quizQuestions.correctAnswer != quizQuestions.correctAnswer){
+        secondsLeft = -10;
+        answerResponse.textContent = "WRONG!";
+      }
+      else if( timer <= 0){
+        score.textContent = finalScoreIs;
+      }
+      
+    };
+
+    // if the incorrect answer is clicked the do this:
+    //rest time in the timer and put the right answer where it has to be
+    // go to the next question or the finale of the quiz
+
+    // if the correct answer is clicked then do this:
+    // dont rest time for the timer and shoe the "correcct" where it has to be 
+    // go to the next question or the finale of the quiz
 
   
