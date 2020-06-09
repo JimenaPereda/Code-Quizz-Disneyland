@@ -1,28 +1,42 @@
 
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+body{
+    text-align: center;
     font-family: 'Almendra', serif;
-    background-image: url("disneyframe.jpg");
+    background-image: url(images/dis.jpg);
     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
+     -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
-.body {
-    text-align: center;
+.highscorecontainer{
+   display: block;
+    background:  white;
+    border: 18px dotted #9A4CD0;
+  
 }
+.quizContainer{
+    width:40%;
+    height:auto;
+    background:  white;
+    border: 18px dotted #9A4CD0;
+    margin-left: 30%;
+    
 
+}
 h1 {
-    padding-top: 150px;
+   
     font-family: 'Almendra', serif;
     font-weight: bold !important;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bolder;
     text-decoration: underline;
     text-decoration-color:rgba(218, 8, 190, 0.2);
 }
+
 
 p {
     padding: 20px;
@@ -50,19 +64,47 @@ p {
 }
 
 /* Nav Bar */
+header{
+    height: 100px;
+    mar
+
+}
+
+#highcont{
+  
+    margin-bottom: -261px;
+    width: 200px;
+    height: 200px;
+}
  #score {
-    color:rgb(167, 116, 230); 
-    padding-left: 20px;
+     display: block;
+     width: 300px;
+    color:rgb(252, 249, 255); 
+   background-color: rgb(161, 15, 161);
     font-size: 20px;
     font-weight: bold;
+  
+}
+#timercont{
+    padding-top: 104px;
+    width: 200px;
+    height: 200px;
+    float: right;
+    background-image: url(images/mikey.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }
 
  #timer {
-    float: right;
-    padding-right: 82px; 
-    color: rgb(12, 185, 207);
+    
+   padding-bottom: 80px;
+    color:rgb(120, 225, 233);
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
+    margin-left: 63px;
  }
 
 /* Coding Quiz Challenge Page */
@@ -75,31 +117,42 @@ p {
 #quizQuestionHeader {
     font-size: 35px;
     font-weight: bolder; 
-    padding-top: 100px;
-    padding-left: 20%; 
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
     padding-bottom: 15px; 
     color: rgb(12, 185, 207);
 }
 
 /* Quiz Question Page */
 li {
+    
     list-style-type: none;
-    padding-left: 40%; 
+    padding-left: -10%;
+    padding-right: 30%;
     font-size: 18px;
-    background-color: #8064A2 ;
+    margin-left: 30px;
     
    }
 
-.questionButton {
+.questions {
+    width: 300px;
     text-align: center !important;
-    background-color: #8064A2 !important;
+    background-color: pink;
     border-color: #8064A2 !important;
     color: rgb(36, 7, 59) !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
     padding: 0px 12px 0px 12px !important;
-    margin: 5px; 
+    margin: 5px;
 }
-
+button {
+    border-radius: 0;
+    background-image: url(images/colors.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+   
+}
  #answerResponse {
      font-style: 'Almendra', serif;
      color: rgb(47, 231, 102);
@@ -117,12 +170,15 @@ li {
 }
 
 #highScores {
-    text-align: left;
+    text-align: center;
     padding-top: 150px;
-    font-weight: bolder; 
-    padding-left: 15%;   
-    padding-top: none !important; 
+    font-weight: bolder;
     color: rgb(12, 185, 207);
+    font-size: 60px;
+    margin-left: 1%;
+    font-family: 'Almendra', serif;
+    text-decoration: underline;
+    text-decoration-color:rgba(218, 8, 190, 0.2);
 }
 
 #highScoreButtons {
@@ -143,12 +199,62 @@ li {
     font-weight: bolder;
     padding-top: 100px;
     padding-left: 15% !important;
+    color: purple;
+    margin-top: -93px;
+    margin-bottom: 8px;
+    font-size: 80px;
 }
 
 /* High Score Page */
 
 #highScoreList {
-    background-color:rgb(36, 7, 59);
+    
     padding-left: 15%; 
     font-size: 15px;
+}
+.typeofanswer{
+    font-size: 58px;
+    /* text-align: center; */
+    color: rgb(211, 9, 127);
+    padding-left: 50px;
+    
+    margin-top: 20px;
+    font-family: 'Almendra', serif;
+}
+
+#initialButton{
+    display: inline-block;
+    font-weight: 400;
+    background: violet;
+    height: 41px;
+    width: 100px;
+    color: white;
+    
+    text-align: center;
+}
+#highScoreButtons {
+    margin-top: 404px;
+    padding-left: 15%;
+    width: 500px;
+}
+.containerHig{
+    margin-left: 30%;
+    width: 500px;
+    background-color: white;
+    margin-bottom: 100px;
+    border: 18px dotted #9A4CD0;
+
+}
+#goBack{
+    margin-left: -48%;
+    width: 150px;
+    margin-bottom: 20px;
+}
+#clearHighScore{
+    margin-left: 16%;
+    width: 250px;
+    margin-bottom: 20px;
+}
+.form-inline{
+    margin-bottom: 20px;
 }

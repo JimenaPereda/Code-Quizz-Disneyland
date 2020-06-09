@@ -11,15 +11,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <!--Main Container Start-->
-<main class="container">
+
 
     <!--Header -->
     <header>
         <h2 id="highScores">Highscores<h2>
     </header>
-
+<main class="containerHig">
     <!--High Scores updated with newest score on the top-->
-    <p id="highScoreList"></p>
+    <ul id="highScoreList"></ul>
+    
 
      <!--Buttons to either go back to main page or clear out the scores-->
     <div class="row col-12" id="highScoreButtons">
@@ -28,7 +29,7 @@
         </div>   
 
         <div class="col-md-6">
-            <button id="clearHighScore" class ="btn" value="reset-form" type="button">Clear High Scores</button>
+            <button id="clearHighScore" class ="btn" type="button">Clear High Scores</button>
         </div>
     </div>
 <!--Main Container End -->
@@ -36,5 +37,9 @@
 
 <!--link to JavaScript Page -->
 <script src="script.js" type="text/javascript"></script>
+<script src="script2.js" type="text/javascript"></script>
+
+
+
 </body>
 </html>

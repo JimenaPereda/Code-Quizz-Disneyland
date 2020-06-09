@@ -1,10 +1,10 @@
 var quizContainer = document.getElementById('quiz');
 var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
-
+var anstext = document.querySelector(".typeofanswer");
 var quizQuestionpage = document.querySelector("#quizQuestionsPage");
-
-quizQuestionpage.style.display= "block";
+var input = document.querySelector("#initialInput");
+var initialBtn = document.querySelector("#initialButton")
 var preguntas = document.querySelector(".preg");
 var quizQuestionHeader = document.getElementById("quizQuestionHeader");
 var choice1 = document.getElementById("a");
@@ -16,14 +16,24 @@ var answerResponse = document.getElementById("answerResponse");
 var questionIndex = 0;
 var finalScoreIs = document.getElementById("finalScoreIs");
 var questionButton = document.querySelectorAll("button.questions");
+var list = document.querySelector("#highScoreList");
 
 console.log(questionButton)
 
-
+quizQuestionpage.style.display= "none";
 var quizChallengePage = document.querySelector(".quizChallengePage");
 var finalScorePage = document.querySelector(".finalScorePage");
 
 var quizQuestions = [
+  {
+    question: "The 2014 film Maleficent is based on the evil godmother from which Disney princess film?",
+      a: "Alice in Wonderland",
+      b: "Sleeping Beauty", 
+      c: "Cinderella",
+      d: "Aladdin",
+      e: "Tarzan",
+    correctAnswer: "b"
+  },
   {
     question: "Cruella de Vil is the villain in which Disney movie?",
       a: "Finding Nemo",
@@ -70,9 +80,49 @@ var quizQuestions = [
     
     correctAnswer: "e"
   },
+  {
+    question:  "What does Hakuna Matata mean?",
+      a: "I came, I saw, I conquered:",
+      b: "Just keep swimming",
+      c: "Everything is satisfactua",
+      d: "No worries",
+      e: "Dance like crazy",
+    
+    correctAnswer: "d"
+  },
+  {
+    question:  "What does King Louie want Mowgli to do??",
+      a: "Leave the jungle",
+      b: "Become his slave",
+      c: "Learn to swim",
+      d: "Tell him how to make fire",
+      e: "Merry his Daughter",
+    
+    correctAnswer: "a"
+  },
+  {
+    question:  "What kind of animal is Bambi?",
+      a: "Deer",
+      b: "Rabbit ",
+      c: "Owl",
+      d: "Cat",
+      e: "Horse",
+    
+    correctAnswer: "a"
+  },
+  {
+    question:  "Who does Captain Hook fear above all else?",
+      a: "Peter Pan",
+      b: "Thinker bell",
+      c: "Michael Eisner ",
+      d: "Cocodrile",
+      e: "Himself",
+    
+    correctAnswer: "d"
+  },
+  
 ];
 
-quizQuestionpage.style.display = "none"; // Hide Quiz Questions Page
 finalScorePage.style.display = "none";   // Hide Final Core Page 
 submitButton.addEventListener("click", startQuiz);  // Event Listener when hit start quiz 
 
@@ -113,7 +163,7 @@ function startQuiz() {
     generateQuestions(questionIndex)
    }
    else{
-    console.log("Game over")
+    generateQuestions.text("Game over")
    }
    
 };
@@ -126,49 +176,57 @@ function generateQuestions(index){
   choice4.textContent = quizQuestions[index].d;
   choice5.textContent = quizQuestions[index].e;
 } 
+initialBtn.addEventListener("click", function(event){
+  
+  var playerName = input.value;
+  var score = secondsLeft;
+  localStorage.setItem(playerName, score);
+  console.log(playerName + score)
+  var highScores = JSON.parse(localStorage.getItem(playerName));
+  var li = document.createElement("li")
+  li.textContent= highScores;
+  list.append(li)
 
+
+  
+  console.log(input.value)
+  console.log(input)
+ 
+ 
+ })
 questionButton.forEach((button) => {
 
-       button.addEventListener("click", function(event) {
+
+      button.addEventListener("click", function(event) {
        console.log(event.target.id)
 
            if(questionIndex >= quizQuestions.length){
-           console.log("Game over")
+            quizQuestionpage.style.display= "none";
+            anstext.textContent= "Game over"
+            console.log("Game over")
+            finalScorePage.style.display = "block"; 
+           
            }
-           else if(event.target.id === quizQuestions[questionIndex].correctAnswer){
+           else if(event.target.id === quizQuestions[questionIndex].correctAnswer&&questionIndex <= quizQuestions.length){
+            anstext.textContent= "CORRECT!!"
            console.log("CORRECT!!")
            console.log(questionIndex)
            questionIndex = questionIndex +  1;
+           
            console.log(questionIndex)
            generateQuestions(questionIndex)
           }
           else{
-          console.log("Incorrect")
+            anstext.textContent="Incorrect"
+            secondsLeft = secondsLeft - 10;
+            console.log("incorrect")
+            questionIndex=questionIndex +1
+            generateQuestions(questionIndex)
+            
          }
       })
 
+
 })
-    function answersHighScore(){
-      if(quizQuestions.correctAnswer === quizQuestions.correctAnswer){
-        score = + 10;
-        answerResponse.textContent = "CORRECT!";
-      }
-      else if(quizQuestions.correctAnswer != quizQuestions.correctAnswer){
-        secondsLeft = -10;
-        answerResponse.textContent = "WRONG!";
-      }
-      else if( timer <= 0){
-        score.textContent = finalScoreIs;
-      }
-      
-    };
 
-    // if the incorrect answer is clicked the do this:
-    //rest time in the timer and put the right answer where it has to be
-    // go to the next question or the finale of the quiz
 
-    // if the correct answer is clicked then do this:
-    // dont rest time for the timer and shoe the "correcct" where it has to be 
-    // go to the next question or the finale of the quiz
-
-  
