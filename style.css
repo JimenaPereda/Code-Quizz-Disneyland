@@ -19,13 +19,11 @@ body{
   
 }
 .quizContainer{
-    width:40%;
+    width:65%;
     height:auto;
     background:  white;
     border: 18px dotted #9A4CD0;
-    margin-left: 30%;
-    
-
+    margin-left: 18%;
 }
 h1 {
    
@@ -45,24 +43,6 @@ p {
     color: rgb(12, 185, 207);
 }
 
-.btn {
-    text-align: center !important;
-    background-color: #8064A2 !important;
-    border-color: #8064A2 !important;
-    color: rgb(36, 7, 59) !important;
-    font-size: 22px !important;
-    padding: 0px 12px 0px 12px !important;
-}
-
-.btn:hover {
-    text-align: center !important;
-    background-color: #ba94e7  !important;
-    border-color: #ba94e7 !important;
-    color:rgb(36, 7, 59)!important;
-    font-size: 22px !important;
-    padding: 0px 12px 0px 12px !important;
-}
-
 /* Nav Bar */
 header{
     height: 100px;
@@ -70,11 +50,10 @@ header{
 
 }
 
-#highcont{
-  
-    margin-bottom: -261px;
-    width: 200px;
-    height: 200px;
+#highcont {
+  margin-bottom: -261px;
+  width: 200px;
+  height: 200px;
 }
  #score {
      display: block;
@@ -130,8 +109,9 @@ li {
     list-style-type: none;
     padding-left: -10%;
     padding-right: 30%;
-    font-size: 18px;
+    font-size: 35px;
     margin-left: 30px;
+    font-family: 'Almendra', serif;
     
    }
 
@@ -144,6 +124,7 @@ li {
     font-size: 20px !important;
     padding: 0px 12px 0px 12px !important;
     margin: 5px;
+    margin-left: 165px;
 }
 button {
     border-radius: 0;
@@ -198,7 +179,7 @@ button {
 #allDone {
     font-weight: bolder;
     padding-top: 100px;
-    padding-left: 15% !important;
+    padding-left: 25% !important;
     color: purple;
     margin-top: -93px;
     margin-bottom: 8px;
@@ -208,16 +189,19 @@ button {
 /* High Score Page */
 
 #highScoreList {
-    
-    padding-left: 15%; 
-    font-size: 15px;
+    font-family: 'Almendra', serif;
+    padding-right: 30%;
+    font-size: 20px;
+    margin-left: 30px;
+    color: pink;
+     padding-top: 112px; 
+    font-size: 40px;
 }
 .typeofanswer{
     font-size: 58px;
     /* text-align: center; */
     color: rgb(211, 9, 127);
-    padding-left: 50px;
-    
+    padding-left: 200px;
     margin-top: 20px;
     font-family: 'Almendra', serif;
 }
@@ -245,16 +229,199 @@ button {
     border: 18px dotted #9A4CD0;
 
 }
+
 #goBack{
-    margin-left: -48%;
+    width: 100px;
+    text-align: center !important;
+    background-color: #8064A2 !important;
+    border-color: #8064A2 !important;
+    color: rgb(36, 7, 59) !important;
+    font-size: 26px !important;
+    margin-left: -98%;
+    margin-bottom: 18px;
     width: 150px;
-    margin-bottom: 20px;
+   
+}
+#submitButton{
+    text-align: center !important;
+    background-color: #8064A2 !important;
+    border-color: #8064A2 !important;
+    color: rgb(36, 7, 59) !important;
+    font-size: 26px !important;
+}
+#initialButton{
+    width: 200px;
+    text-align: center !important;
+    background-color: #8064A2 !important;
+    border-color: #8064A2 !important;
+    color: rgb(36, 7, 59) !important;
+    font-size: 26px !important;
 }
 #clearHighScore{
-    margin-left: 16%;
+    
+    text-align: center !important;
+    background-color: #8064A2 !important;
+    border-color: #8064A2 !important;
+    color: rgb(36, 7, 59) !important;
+    font-size: 26px !important;
+    margin-left: 25%;
+    margin-bottom: 18px;
     width: 250px;
-    margin-bottom: 20px;
+} 
+#clearHighScore:hover {
+    width: 230px;
+    text-align: center !important;
+    background-color: #ba94e7  !important;
+    border-color: #ba94e7 !important;
+    color:rgb(36, 7, 59)!important;
+    font-size: 22px !important;
+}
+#goBack:hover {
+    text-align: center !important;
+    background-color: #ba94e7  !important;
+    border-color: #ba94e7 !important;
+    color:rgb(36, 7, 59)!important;
+    font-size: 22px !important;
 }
 .form-inline{
     margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 425px ){
+    h1{
+   
+        font-family: 'Almendra', serif;
+        font-size: 15px;
+    } 
+    
+   p{
+    font-size: 12px;
+    }
+
+#score {
+    font-size: 13px;
+    width: 229px;
+
+}
+ .typeofanswer{
+    margin-left: -59px;
+    font-size: 29px;
+ }
+
+/* Coding Quiz Challenge Page */
+
+
+  #quizQuestionHeader {
+    font-size: 16px;
+  }
+
+/* Quiz Question Page */
+
+.questions {
+    width: 193px;
+    font-size: 14px !important;
+    margin: 7px;
+    margin-left: -43%;
+}
+#initialButton {
+    background: violet;
+    height: 33px;
+    width: 97px;
+    margin-left: -11%;
+    margin-top: 5%;
+}
+.containerHig {
+    margin-left: 16%;
+    width: 300px;
+    
+}
+#highScores{
+    font-size: 46px;
+}
+li{
+    font-family: 'Almendra', serif;
+    padding-right: 30%;
+font-size: 20px;
+margin-left: 30px;
+color: pink;
+}
+}
+
+
+ 
+@media only screen and (max-width: 375px ){
+    .questions {
+        width: 180px;
+        font-size: 13px !important;
+        margin-left: -68%;
+    }
+    .typeofanswer{
+        font-size: 26px;
+        margin-left: -78px;
+        margin-top: 17px;
+    }
+    #initialInput{
+        width: 85%;
+
+    }
+    #initialButton {
+        background: violet;
+        height: 33px;
+        width: 97px;
+        margin-left: -11%;
+        margin-top: 5%;
+    }
+    #allDone{
+        font-size: 51px;
+    }
+    .containerHig {
+        margin-left: 15%;
+        width: 250px;
+    }
+    #highScores{
+        padding-top: 133px;
+        font-size: 28px;
+        margin-left: -5%;
+    }
+    #goBack{
+        margin-left: 5%;
+        width: 120px;
+        margin-bottom: 10px;
+    }
+    #clearHighScore {
+        margin-left: -17%;
+        width: 200px;
+        margin-bottom: 5px;
+    }
+    li{
+        font-family: 'Almendra', serif;
+        padding-right: 30%;
+    font-size: 20px;
+    margin-left: 30px;
+    color: pink;
+    }
+}
+@media only screen and (max-width: 320px ){
+    .questions {
+        width: 164px;
+        font-size: 13px !important;
+        margin-left: -106%;
+    }
+    .typeofanswer {
+        padding-left: 34px;
+    }
+    #allDone{
+        font-size: 47px;
+    }
+    #initialButton {
+        background: violet;
+        height: 33px;
+        width: 97px;
+        margin-left: -11%;
+        margin-top: 5%;
+    }
+    #highScores {
+        padding-top: 133px;
+        margin-left: 10%;
+    }
 }

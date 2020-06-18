@@ -1,11 +1,12 @@
 var quizContainer = document.getElementById('quiz');
+var preguntas = document.querySelector(".preg");
+
 var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
 var anstext = document.querySelector(".typeofanswer");
 var quizQuestionpage = document.querySelector("#quizQuestionsPage");
 var input = document.querySelector("#initialInput");
 var initialBtn = document.querySelector("#initialButton")
-var preguntas = document.querySelector(".preg");
 var quizQuestionHeader = document.getElementById("quizQuestionHeader");
 var choice1 = document.getElementById("a");
 var choice2 = document.getElementById("b");
@@ -176,23 +177,36 @@ function generateQuestions(index){
   choice4.textContent = quizQuestions[index].d;
   choice5.textContent = quizQuestions[index].e;
 } 
+
 initialBtn.addEventListener("click", function(event){
-  
+  //Use Prevent Default otherwise it will not wait to save the values
+  event.preventDefault();
+  // Get highscores previously saved, if there are no item called "highscores"  
+  // the variable highscores will be equal to an empty array
+  var highscores =
+  JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+  //get input value
   var playerName = input.value;
-  var score = secondsLeft;
-  localStorage.setItem(playerName, score);
-  console.log(playerName + score)
-  var highScores = JSON.parse(localStorage.getItem(playerName));
-  var li = document.createElement("li")
-  li.textContent= highScores;
-  list.append(li)
 
+  //Check what is the variable highscores
+  console.log('HIGHSCORES', highscores);
 
-  
-  console.log(input.value)
-  console.log(input)
- 
- 
+  //create a new highscore
+  var newScore = {
+    playerName: playerName,
+    score: secondsLeft
+  }
+
+  //push the new score to the highsocres array 
+  highscores.push(newScore);
+
+  //save the array to the localStorage
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  //redirect the user to the highscores view instead of using and <a></a> tag 
+  window.location.href = "highscore.html";
+
  })
 questionButton.forEach((button) => {
 
